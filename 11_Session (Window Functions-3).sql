@@ -5,7 +5,7 @@
 
 --Assign an ordinal number to the product prices for each category in ascending order
 
---1. Herbir kategori içinde ürünlerin fiyat sıralamasını yapınız (artan fiyata göre 1'den başlayıp birer birer artacak)
+--1. Herbir kategori iÃ§inde Ã¼rÃ¼nlerin fiyat sÃ½ralamasÃ½nÃ½ yapÃ½nÃ½z (artan fiyata gÃ¶re 1'den baÃ¾layÃ½p birer birer artacak)
 
 
 SELECT category_id, list_price,
@@ -48,7 +48,7 @@ FROM	product.product
 
 -- Write a query that returns the cumulative distribution of the list price in product table by brand.
 
--- product tablosundaki list price' ların kümülatif dağılımını marka kırılımında hesaplayınız
+-- product tablosundaki list price' larÃ½n kÃ¼mÃ¼latif daÃ°Ã½lÃ½mÃ½nÃ½ marka kÃ½rÃ½lÃ½mÃ½nda hesaplayÃ½nÃ½z
 
 
 SELECT brand_id, list_price, 
@@ -85,7 +85,7 @@ FROM	product.product
 
 
 --Write a query that returns how many days are between the third and fourth order dates of each staff.
---Her bir personelin üçüncü ve dördüncü siparişleri arasındaki gün farkını bulunuz.
+--Her bir personelin Ã¼Ã§Ã¼ncÃ¼ ve dÃ¶rdÃ¼ncÃ¼ sipariÃ¾leri arasÃ½ndaki gÃ¼n farkÃ½nÃ½ bulunuz.
 
 
 WITH T1 AS (
@@ -155,7 +155,7 @@ WHERE	avg_prod_price < avg_prod_price_by_order
 --Calculate the stores' weekly cumulative count of orders for 2018
 
 
---mağazaların 2018 yılına ait haftalık kümülatif sipariş sayılarını hesaplayınız
+--maÃ°azalarÃ½n 2018 yÃ½lÃ½na ait haftalÃ½k kÃ¼mÃ¼latif sipariÃ¾ sayÃ½larÃ½nÃ½ hesaplayÃ½nÃ½z
 
 
 SELECT	DISTINCT B.store_id, B.store_name,
@@ -202,7 +202,7 @@ FROM	T1
 
 
 --Calculate 7-day moving average of the number of products sold between '2018-03-12' and '2018-04-12'.
---'2018-03-12' ve '2018-04-12' arasında satılan ürün sayısının 7 günlük hareketli ortalamasını hesaplayın.
+--'2018-03-12' ve '2018-04-12' arasÃ½nda satÃ½lan Ã¼rÃ¼n sayÃ½sÃ½nÃ½n 7 gÃ¼nlÃ¼k hareketli ortalamasÃ½nÃ½ hesaplayÃ½n.
 
 --WITH T1 AS (
 --			SELECT	DISTINCT order_date, SUM(quantity) OVER (PARTITION BY order_date) AS cnt_product
