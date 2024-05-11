@@ -11,7 +11,7 @@
 
 
 --List the stores whose turnovers are under the average store turnovers in 2018.
---2018 yılında tüm mağazaların ortalama cirosunun altında ciroya sahip mağazaları listeleyin.
+--2018 yÃ½lÃ½nda tÃ¼m maÃ°azalarÃ½n ortalama cirosunun altÃ½nda ciroya sahip maÃ°azalarÃ½ listeleyin.
 
 WITH T1 AS (
 			SELECT	B.store_id, 
@@ -44,7 +44,7 @@ ORDER BY x.store_id
 
 
 -- Write a query that returns the net amount of their first order for customers who placed their first order after 2019-10-01.
---İlk siparişini 2019-10-01 tarihinden sonra veren müşterilerin ilk siparişlerinin net tutarını döndürünüz.
+--Ãlk sipariÃ¾ini 2019-10-01 tarihinden sonra veren mÃ¼Ã¾terilerin ilk sipariÃ¾lerinin net tutarÃ½nÃ½ dÃ¶ndÃ¼rÃ¼nÃ¼z.
 
 
 WITH T1 AS (
@@ -74,7 +74,7 @@ GROUP BY
 ----WINDOW FUNCTIONS
 
 --Write a query that returns the total stock amount of each product in the stock table.
---ürünlerin stock sayılarını bulunuz
+--Ã¼rÃ¼nlerin stock sayÃ½larÃ½nÃ½ bulunuz
 
 
 SELECT	product_id, SUM(quantity)
@@ -109,7 +109,7 @@ ORDER BY total_quantity
 
 -- Write a query that returns average product prices of brands. 
 
--- Markalara göre ortalama ürün fiyatlarını hem Group By hem de Window Functions ile hesaplayınız.
+-- Markalara gÃ¶re ortalama Ã¼rÃ¼n fiyatlarÃ½nÃ½ hem Group By hem de Window Functions ile hesaplayÃ½nÃ½z.
 
 
 
@@ -134,7 +134,7 @@ FROM	 product.product
 --///
 
 -- What is the cheapest product price for each category?
--- Herbir kategorideki en ucuz ürünün fiyatı
+-- Herbir kategorideki en ucuz Ã¼rÃ¼nÃ¼n fiyatÃ½
 
 SELECT	DISTINCT category_id, MIN (list_price) OVER(PARTITION BY category_id)
 FROM	product.product
@@ -145,7 +145,7 @@ FROM	product.product
 
 
 -- How many different product in the product table?
--- Product tablosunda toplam kaç faklı product bulunduğu
+-- Product tablosunda toplam kaÃ§ faklÃ½ product bulunduÃ°u
 
 
 SELECT	COUNT(product_name)
@@ -168,7 +168,7 @@ FROM	product.product
 ---////
 
 -- How many different product in the order_item table?
--- Order_item tablosunda kaç farklı ürün bulunmaktadır?
+-- Order_item tablosunda kaÃ§ farklÃ½ Ã¼rÃ¼n bulunmaktadÃ½r?
 
 SELECT	 *
 FROM	 sale.order_item
@@ -199,7 +199,7 @@ FROM	(
 --////
 
 -- How many different product are in each brand in each category?
--- Herbir kategorideki herbir markada kaç farklı ürünün bulunduğunu raporlayın.
+-- Herbir kategorideki herbir markada kaÃ§ farklÃ½ Ã¼rÃ¼nÃ¼n bulunduÃ°unu raporlayÃ½n.
 
 
 SELECT	DISTINCT category_id, brand_id, COUNT (product_id) OVER (PARTITION BY category_id, brand_id)
