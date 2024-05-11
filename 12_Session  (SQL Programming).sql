@@ -4,7 +4,7 @@
 
 ---SQL Programming
 
---Begin ve End zorunlu değil ancak procedure' un nerede başlayıp nerede bittiğini görebilmek için önemli.
+--Begin ve End zorunlu deÃ°il ancak procedure' un nerede baÃ¾layÃ½p nerede bittiÃ°ini gÃ¶rebilmek iÃ§in Ã¶nemli.
 
 CREATE PROCEDURE sp_sample_1
 AS
@@ -17,7 +17,7 @@ END;
 
 sp_sample_1
 
-EXEC sp_sample_1 -- sadece proc ismiyle çağırmak pek tercih edilmez.
+EXEC sp_sample_1 -- sadece proc ismiyle Ã§aÃ°Ã½rmak pek tercih edilmez.
 
 EXECUTE sp_sample_1
 
@@ -26,7 +26,7 @@ EXECUTE sp_sample_1
 ALTER PROCEDURE sp_sample_1
 AS
 BEGIN
-		PRINT 'HELLO WORLD' -- sonucu print veya select ile alırız. print ile mesaj olarak sonuçlar görünecektir.
+		PRINT 'HELLO WORLD' -- sonucu print veya select ile alÃ½rÃ½z. print ile mesaj olarak sonuÃ§lar gÃ¶rÃ¼necektir.
 
 
 END;
@@ -62,7 +62,7 @@ INSERT ORDER_TBL VALUES (1, 1, 'Adam', GETDATE()-10, GETDATE()-5 ),
 CREATE TABLE ORDER_DELIVERY
 (
 ORDER_ID TINYINT NOT NULL,
-DELIVERY_DATE DATE -- gerçekleşen delivery date
+DELIVERY_DATE DATE -- gerÃ§ekleÃ¾en delivery date
 );
 
 
@@ -96,7 +96,7 @@ END;
 EXEC sp_order_cnt
 
 
---proc içerisinde kullanılan tablo güncellendikçe sonuç değişecektir.
+--proc iÃ§erisinde kullanÃ½lan tablo gÃ¼ncellendikÃ§e sonuÃ§ deÃ°iÃ¾ecektir.
 
 INSERT ORDER_TBL VALUES	(9,9, 'Sam', getdate(), getdate()+2)
 
@@ -111,7 +111,7 @@ EXEC sp_order_cnt
 ----------------
 
 
----parametre yazarken @ karakteri ve veri tipini yazmak zorundayız.
+---parametre yazarken @ karakteri ve veri tipini yazmak zorundayÃ½z.
 CREATE PROC sp_order_by_date (@ord_date DATE)
 AS
 BEGIN
@@ -120,7 +120,7 @@ BEGIN
 		WHERE	order_date = @ord_date
 END;
 
---proc parametre aldığında bu şekilde yazılır. Tarih ve string değerler tırnak içinde, numeric değerler tırnaksız yazılır.
+--proc parametre aldÃ½Ã°Ã½nda bu Ã¾ekilde yazÃ½lÃ½r. Tarih ve string deÃ°erler tÃ½rnak iÃ§inde, numeric deÃ°erler tÃ½rnaksÃ½z yazÃ½lÃ½r.
 EXEC sp_order_by_date '2024-05-10'
 
 
@@ -140,7 +140,7 @@ EXEC sp_order_by_date_by_customer '2024-05-10', 'Sam'
 
 
 
---proc alter komutuyla güncellenir. parametre tanımlandığında atanılan değer default değer olarak kabul edilir.
+--proc alter komutuyla gÃ¼ncellenir. parametre tanÃ½mlandÃ½Ã°Ã½nda atanÃ½lan deÃ°er default deÃ°er olarak kabul edilir.
 
 ALTER PROC sp_order_by_date_by_customer (@cust_name VARCHAR(15) , @ord_date DATE = '2024-05-10')
 AS
@@ -155,22 +155,22 @@ END;
 
 EXEC sp_order_by_date_by_customer 'Sam', '2024-05-10'
 
---default değer tanımlanmış parametre, proc çağırılırken yazılmayabilir.
+--default deÃ°er tanÃ½mlanmÃ½Ã¾ parametre, proc Ã§aÃ°Ã½rÃ½lÃ½rken yazÃ½lmayabilir.
 
 EXEC sp_order_by_date_by_customer 'Sam'
 
 
 -----------------------
 
-DECLARE @v1 int, @v2 int, @result int --değişkenleri tanımla
+DECLARE @v1 int, @v2 int, @result int --deÃ°iÃ¾kenleri tanÃ½mla
 
-SET @v1 = 5  --değer ata
+SET @v1 = 5  --deÃ°er ata
 
 SET @v2 = 6
 
 SET @result = @v1 * @v2 -- kullan
 
-SELECT @result -- çağır
+SELECT @result -- Ã§aÃ°Ã½r
 
 ---------------------------
 
@@ -204,7 +204,7 @@ WHERE CUSTOMER_ID = @cust_id
 DECLARE @CUST_NAME VARCHAR(10)
 
 
---set ile sorgu sonucundaki değeri değişkene atama
+--set ile sorgu sonucundaki deÃ°eri deÃ°iÃ¾kene atama
 
 SET @CUST_NAME = (SELECT	CUSTOMER_NAME
 					FROM	ORDER_TBL
@@ -220,7 +220,7 @@ SELECT @CUST_NAME
 
 DECLARE @CUST_NAME VARCHAR(10)
 
---select ile sorgu sonucundaki değeri değişkene atama
+--select ile sorgu sonucundaki deÃ°eri deÃ°iÃ¾kene atama
 
 SELECT	@CUST_NAME = CUSTOMER_NAME
 		FROM	ORDER_TBL
@@ -263,10 +263,10 @@ ELSE PRINT 'There is no such a customer!'
 
 ------------------
 
---iki değişken tanımlayın
---1. değişken ikincisinden büyük ise iki değişkeni toplayın
---2. değişken birincisinden büyük ise 2. değişkenden 1. değişkeni çıkarın
---1. değişken 2. değişkene eşit ise iki değişkeni çarpın
+--iki deÃ°iÃ¾ken tanÃ½mlayÃ½n
+--1. deÃ°iÃ¾ken ikincisinden bÃ¼yÃ¼k ise iki deÃ°iÃ¾keni toplayÃ½n
+--2. deÃ°iÃ¾ken birincisinden bÃ¼yÃ¼k ise 2. deÃ°iÃ¾kenden 1. deÃ°iÃ¾keni Ã§Ã½karÃ½n
+--1. deÃ°iÃ¾ken 2. deÃ°iÃ¾kene eÃ¾it ise iki deÃ°iÃ¾keni Ã§arpÃ½n
 
 
 DECLARE @v1 int, @v2 int
@@ -288,16 +288,16 @@ ELSE IF @v1 = @v2
 ----///////////////////////
 
 
----İstenilen tarihte verilen sipariş sayısı 2 ten küçükse 'lower than 2',
--- 2 ile 5 arasındaysa sipariş sayısı, 5' den büyükse 'upper than 5' yazdıran bir sorgu yazınız.
+---Ãstenilen tarihte verilen sipariÃ¾ sayÃ½sÃ½ 2 ten kÃ¼Ã§Ã¼kse 'lower than 2',
+-- 2 ile 5 arasÃ½ndaysa sipariÃ¾ sayÃ½sÃ½, 5' den bÃ¼yÃ¼kse 'upper than 5' yazdÃ½ran bir sorgu yazÃ½nÃ½z.
 
 SELECT	COUNT(ORDER_ID)	FROM	ORDER_TBL WHERE	ORDER_DATE = '2024-05-7' ; 
 
 
 
 
---(SELECT	COUNT(ORDER_ID)	FROM	ORDER_TBL WHERE	ORDER_DATE = @ord_day) bu sorgu değişkene tanımlanabilirdi
---proc oluştururken bunu yapacağız
+--(SELECT	COUNT(ORDER_ID)	FROM	ORDER_TBL WHERE	ORDER_DATE = @ord_day) bu sorgu deÃ°iÃ¾kene tanÃ½mlanabilirdi
+--proc oluÃ¾tururken bunu yapacaÃ°Ã½z
 
 
 DECLARE @ord_day DATE
@@ -315,14 +315,14 @@ ELSE IF 5 < (SELECT	COUNT(ORDER_ID)	FROM	ORDER_TBL WHERE	ORDER_DATE = @ord_day)
 
 
 
---(SELECT	COUNT(ORDER_ID)	FROM	ORDER_TBL WHERE	ORDER_DATE = @ord_day) bu sorgu değişkene tanımlanabilirdi
---proc oluştururken bunu yapacağız
+--(SELECT	COUNT(ORDER_ID)	FROM	ORDER_TBL WHERE	ORDER_DATE = @ord_day) bu sorgu deÃ°iÃ¾kene tanÃ½mlanabilirdi
+--proc oluÃ¾tururken bunu yapacaÃ°Ã½z
 
 
 exec sp_sample_ord_cnt '2024-05-10'
 
 
----yukarıdaki sorguyu procedure haline dönüştürelim
+---yukarÃ½daki sorguyu procedure haline dÃ¶nÃ¼Ã¾tÃ¼relim
 
 CREATE PROC sp_sample_ord_cnt (@ord_date DATE)
 AS
@@ -350,8 +350,8 @@ exec sp_sample_ord_cnt '2024-05-7'
 
 ----WHILE
 
---başlangıç ve bitiş değeri belirlenmeli
---döngüyü sağlayacak işlem yazılmalı
+--baÃ¾langÃ½Ã§ ve bitiÃ¾ deÃ°eri belirlenmeli
+--dÃ¶ngÃ¼yÃ¼ saÃ°layacak iÃ¾lem yazÃ½lmalÃ½
 
 
 DECLARE @NUM INT = 1 , @ENDPOINT INT = 50
@@ -363,7 +363,7 @@ BEGIN
 END;
 
 
----- bir tabloya otomatik olarak değer girilmesi
+---- bir tabloya otomatik olarak deÃ°er girilmesi
 
 DECLARE @START_ID INT = 10
 
@@ -389,13 +389,13 @@ FROM ORDER_TBL
 
 --SCALAR-VALUED FUNCTIONS
 
---Fonksiyonlarda parametre olmasa da parantez yazılır. Parametre varsa içine tanımlanır.
+--Fonksiyonlarda parametre olmasa da parantez yazÃ½lÃ½r. Parametre varsa iÃ§ine tanÃ½mlanÃ½r.
 
 CREATE FUNCTION fn_sample_1() 
-RETURNS VARCHAR(MAX) -- dönecek değerin veri tipini baştan belirliyoruz.
+RETURNS VARCHAR(MAX) -- dÃ¶necek deÃ°erin veri tipini baÃ¾tan belirliyoruz.
 AS
 BEGIN
-		RETURN UPPER('clarusway') -- return fonksiyonlarda sonucu döndürecek komut. Mutlaka yazılmalı
+		RETURN UPPER('clarusway') -- return fonksiyonlarda sonucu dÃ¶ndÃ¼recek komut. Mutlaka yazÃ½lmalÃ½
 END;
 
 
@@ -422,13 +422,13 @@ FROM	ORDER_TBL
 --------------------
 
 
---Siparişleri, tahmini teslim tarihleri ve gerçekleşen teslim tarihlerini kıyaslayarak
---'Late','Early' veya 'On Time' olarak sınıflandırmak istiyorum.
---Eğer siparişin ORDER_TBL tablosundaki EST_DELIVERY_DATE' i (tahmini teslim tarihi) 
---ORDER_DELIVERY tablosundaki DELIVERY_DATE' ten (gerçekleşen teslimat tarihi) küçükse
---Bu siparişi 'LATE' olarak etiketlemek,
---Eğer EST_DELIVERY_DATE>DELIVERY_DATE ise Bu siparişi 'EARLY' olarak etiketlemek,
---Eğer iki tarih birbirine eşitse de bu siparişi 'ON TIME' olarak etiketlemek istiyorum.
+--SipariÃ¾leri, tahmini teslim tarihleri ve gerÃ§ekleÃ¾en teslim tarihlerini kÃ½yaslayarak
+--'Late','Early' veya 'On Time' olarak sÃ½nÃ½flandÃ½rmak istiyorum.
+--EÃ°er sipariÃ¾in ORDER_TBL tablosundaki EST_DELIVERY_DATE' i (tahmini teslim tarihi) 
+--ORDER_DELIVERY tablosundaki DELIVERY_DATE' ten (gerÃ§ekleÃ¾en teslimat tarihi) kÃ¼Ã§Ã¼kse
+--Bu sipariÃ¾i 'LATE' olarak etiketlemek,
+--EÃ°er EST_DELIVERY_DATE>DELIVERY_DATE ise Bu sipariÃ¾i 'EARLY' olarak etiketlemek,
+--EÃ°er iki tarih birbirine eÃ¾itse de bu sipariÃ¾i 'ON TIME' olarak etiketlemek istiyorum.
 
 
 ALTER FUNCTION fn_order_delivery_status (@order_id INT )
@@ -480,12 +480,12 @@ WHERE	dbo.fn_order_delivery_status(A.ORDER_ID) = 'ON TIME'
 ---TABLE-VALUED FUNCTIONS
 
 CREATE FUNCTION fn_table_1 ()
-RETURNS TABLE -- table valued fonksiyonlarda dönecek değerin veri tipi table olarak belirtilir
+RETURNS TABLE -- table valued fonksiyonlarda dÃ¶necek deÃ°erin veri tipi table olarak belirtilir
 AS 
 
--- table valued fonksiyonlarda dönecek tablo fonksiyonda değişken olarak tanımlanan tablo değilse
--- yani aşağıdaki gibi mevcut bir tablonun belirli değerlerini döndüren bir sorgu sonucunda oluşan tablo döndürülecekse
--- begin ve end yazılmaz. sonucu döndürecek sorgu aşağıdaki gibi RETURN komutu sonrasında yazılır.
+-- table valued fonksiyonlarda dÃ¶necek tablo fonksiyonda deÃ°iÃ¾ken olarak tanÃ½mlanan tablo deÃ°ilse
+-- yani aÃ¾aÃ°Ã½daki gibi mevcut bir tablonun belirli deÃ°erlerini dÃ¶ndÃ¼ren bir sorgu sonucunda oluÃ¾an tablo dÃ¶ndÃ¼rÃ¼lecekse
+-- begin ve end yazÃ½lmaz. sonucu dÃ¶ndÃ¼recek sorgu aÃ¾aÃ°Ã½daki gibi RETURN komutu sonrasÃ½nda yazÃ½lÃ½r.
 
 RETURN	SELECT *
 		FROM	ORDER_TBL
@@ -507,7 +507,7 @@ RETURN	SELECT *
 		WHERE	ORDER_DATE < @day
 
 
--- table valued fonksiyonlar tablo gibi kullanılır.
+-- table valued fonksiyonlar tablo gibi kullanÃ½lÃ½r.
 SELECT *
 FROM	dbo.fn_table_2('2024-05-09')
 
@@ -515,7 +515,7 @@ FROM	dbo.fn_table_2('2024-05-09')
 -------------
 
 
--- Tablo değişkenini aşağıdaki gibi oluşturup kullanabiliriz.
+-- Tablo deÃ°iÃ¾kenini aÃ¾aÃ°Ã½daki gibi oluÃ¾turup kullanabiliriz.
 
 DECLARE @TBL1 TABLE (ID INT , NAME VARCHAR(10))
 
@@ -528,12 +528,12 @@ FROM	@TBL1
 
 ----
 
---statusu on time olan siparişlerin müşterilerinin id ve ismini döndüren bir fonksiyon oluşturun.
+--statusu on time olan sipariÃ¾lerin mÃ¼Ã¾terilerinin id ve ismini dÃ¶ndÃ¼ren bir fonksiyon oluÃ¾turun.
 
 CREATE FUNCTION fn_ontime_orders(@ORDER_ID INT)
-RETURNS @CUSTOMER TABLE (ID INT, [NAME] VARCHAR(25)) -- @customer isimli bir tablo değişkeni oluşturuyoruz, sütunlarını belirliyoruz
+RETURNS @CUSTOMER TABLE (ID INT, [NAME] VARCHAR(25)) -- @customer isimli bir tablo deÃ°iÃ¾keni oluÃ¾turuyoruz, sÃ¼tunlarÃ½nÃ½ belirliyoruz
 AS
-BEGIN -- yukarıdaki gibi fonksiyon sonucunda dönecek tablo değişken olarak tanımlanmışsa  fonksiyon içindeki komutlar begin ve end arasına yazılır.
+BEGIN -- yukarÃ½daki gibi fonksiyon sonucunda dÃ¶necek tablo deÃ°iÃ¾ken olarak tanÃ½mlanmÃ½Ã¾sa  fonksiyon iÃ§indeki komutlar begin ve end arasÃ½na yazÃ½lÃ½r.
 
 
 		INSERT @CUSTOMER
