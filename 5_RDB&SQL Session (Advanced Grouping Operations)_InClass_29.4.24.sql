@@ -3,14 +3,14 @@
 --GROUPING OPERATIONS
 
 /*
-SQL SERVER'DA QUERY'NÝN ÝÞLEM SIRASI!!
+SQL SERVER'DA QUERY'NÃN ÃÃžLEM SIRASI!!
 
 FROM		: Hangi tablolara gitmem gerekiyor?
-WHERE		: Bu tablolardan hangi verileri çekmem gerekiyor? (Ana tablolar üzerinde bir filtreleme yapýyorum)
-GROUP BY	: From ile seçilen tablolarýn, where ile seçilen satýrlarýný ne þekilde gruplayacaðým?
-HAVING		: Yukarda gruplanmýþ tablo üzerinden nasýl bir filtreleme yapacaðým? (örnek: list_price > 1000)
-SELECT		: Hangi bilgileri-sütunlarý getireyim? Hangi aggregate iþlemi yapayým? Sonuç tablomda neleri görmek istiyorum?
-ORDER BY	: Sonuç tablosunu hangi sýralama ile getireyim.
+WHERE		: Bu tablolardan hangi verileri Ã§ekmem gerekiyor? (Ana tablolar Ã¼zerinde bir filtreleme yapÃ½yorum)
+GROUP BY	: From ile seÃ§ilen tablolarÃ½n, where ile seÃ§ilen satÃ½rlarÃ½nÃ½ ne Ã¾ekilde gruplayacaÃ°Ã½m?
+HAVING		: Yukarda gruplanmÃ½Ã¾ tablo Ã¼zerinden nasÃ½l bir filtreleme yapacaÃ°Ã½m? (Ã¶rnek: list_price > 1000)
+SELECT		: Hangi bilgileri-sÃ¼tunlarÃ½ getireyim? Hangi aggregate iÃ¾lemi yapayÃ½m? SonuÃ§ tablomda neleri gÃ¶rmek istiyorum?
+ORDER BY	: SonuÃ§ tablosunu hangi sÃ½ralama ile getireyim.
 
 */
 
@@ -38,7 +38,7 @@ ORDER BY AVG(list_price) ASC;
 
 --Write a query that checks if any product id is duplicated in product table.
 
-----product tablosunda herhangi bir product id' nin çoklayýp çoklamadýðýný kontrol ediniz.
+----product tablosunda herhangi bir product id' nin Ã§oklayÃ½p Ã§oklamadÃ½Ã°Ã½nÃ½ kontrol ediniz.
 
 SELECT *
 FROM product.product;
@@ -62,7 +62,7 @@ HAVING COUNT(product_id) > 1;
 
 --Write a query that returns category ids with conditions max list price above 4000 or a min list price below 500.
 
---maximum list price' ý 4000' in üzerinde olan veya minimum list price' ý 500' ün altýnda olan categori id' leri getiriniz
+--maximum list price' Ã½ 4000' in Ã¼zerinde olan veya minimum list price' Ã½ 500' Ã¼n altÃ½nda olan categori id' leri getiriniz
 --category name' e gerek yok.
 
 
@@ -83,8 +83,8 @@ HAVING MAX(list_price) > 4000 OR MIN(list_price) < 500;
 
 --Find the average product prices of the brands. Display brand name and average prices in descending order.
 
---Markalara ait ortalama ürün fiyatlarýný bulunuz.
---ortalama fiyatlara göre azalan sýrayla gösteriniz.
+--Markalara ait ortalama Ã¼rÃ¼n fiyatlarÃ½nÃ½ bulunuz.
+--ortalama fiyatlara gÃ¶re azalan sÃ½rayla gÃ¶steriniz.
 
 SELECT *
 FROM product.brand;
@@ -103,7 +103,7 @@ GROUP BY
 	brand_name
 ORDER BY 2 DESC;
 
--- INNER JOIN ÝLE KULLANIRSAK:
+-- INNER JOIN ÃLE KULLANIRSAK:
 SELECT brand_name, AVG(A.list_price) AVG_PRICE
 FROM product.product A
 	INNER JOIN 
@@ -120,7 +120,7 @@ ORDER BY 2 DESC;
 
 --Write a query that returns the list of brands whose average product prices are more than 1000
 
----ortalama ürün fiyatý 1000' den yüksek olan MARKALARI getiriniz
+---ortalama Ã¼rÃ¼n fiyatÃ½ 1000' den yÃ¼ksek olan MARKALARI getiriniz
 
 
 SELECT brand_name, AVG(A.list_price) AVG_PRICE
@@ -142,8 +142,8 @@ ORDER BY 2 DESC;
 --(please take into consideration of discounts and quantities)
 
 
---bir sipariþin toplam net tutarýný getiriniz. (müþterinin sipariþ için ödediði tutar)
---discount' ý ve quantity' yi ihmal etmeyiniz.
+--bir sipariÃ¾in toplam net tutarÃ½nÃ½ getiriniz. (mÃ¼Ã¾terinin sipariÃ¾ iÃ§in Ã¶dediÃ°i tutar)
+--discount' Ã½ ve quantity' yi ihmal etmeyiniz.
 
 
 SELECT *
@@ -173,7 +173,7 @@ ORDER BY order_id;
 
 --Write a query that returns monthly order counts of the States.
 
---State' lerin aylýk sipariþ sayýlarýný hesaplayýnýz
+--State' lerin aylÃ½k sipariÃ¾ sayÃ½larÃ½nÃ½ hesaplayÃ½nÃ½z
 
 SELECT *
 FROM sale.customer
@@ -245,7 +245,7 @@ FROM sale.sales_summary;
 --GRUPING SETS
 
 /*SORU 1. Calculate the total sales price of each brands.
-TR - 1. Her markanýn toplam satýþ miktarýný hesaplayýnýz.
+TR - 1. Her markanÃ½n toplam satÃ½Ã¾ miktarÃ½nÃ½ hesaplayÃ½nÃ½z.
 */
 
 SELECT Brand, SUM(total_sales_price) total_sales_price
@@ -254,7 +254,7 @@ GROUP BY Brand;
 
 /*
 SORU 2. Calculate the total sales price by the Model Years
-TR - 2. Model Yýllarýna göre toplam satýþ miktarýný hesaplayýnýz.
+TR - 2. Model YÃ½llarÃ½na gÃ¶re toplam satÃ½Ã¾ miktarÃ½nÃ½ hesaplayÃ½nÃ½z.
 */
 
 SELECT Model_Year, SUM(total_sales_price) total_sales_price
@@ -263,7 +263,7 @@ GROUP BY Model_Year;
 
 
 -- SORU-3. Calculate the total sales amount by brand and model year.
---TR - 3. Marka ve Model Yýlý kýrýlýmýnda toplam satýþ miktarýný hesaplayýnýz
+--TR - 3. Marka ve Model YÃ½lÃ½ kÃ½rÃ½lÃ½mÃ½nda toplam satÃ½Ã¾ miktarÃ½nÃ½ hesaplayÃ½nÃ½z
 
 SELECT Brand, Model_Year, SUM(total_sales_price) total_sales_price
 FROM sale.sales_summary
@@ -272,7 +272,7 @@ GROUP BY Brand, Model_Year;
 
 -- SORU 4. Calculate the total sales amount from all sales.
 
--- TR - 4. Tüm satýþlardan elde edilen toplam satýþ tutarýný hesaplayýnýz:
+-- TR - 4. TÃ¼m satÃ½Ã¾lardan elde edilen toplam satÃ½Ã¾ tutarÃ½nÃ½ hesaplayÃ½nÃ½z:
 
 SELECT SUM(total_sales_price)
 FROM sale.sales_summary;
@@ -281,7 +281,7 @@ FROM sale.sales_summary;
 
 /* Perform the above four variations in a single query using 'Grouping Sets'.
 
-Yukarýdaki 4 maddede istenileni tek bir sorguda getirmek için Grouping sets kullanýlabilir
+YukarÃ½daki 4 maddede istenileni tek bir sorguda getirmek iÃ§in Grouping sets kullanÃ½labilir
 Yani brand, Category, brand + category, total
 
 1. brand
@@ -312,7 +312,7 @@ ORDER BY 1,2;
 --Generate different grouping variations that can be produced with the brand and Model_Year columns using 'ROLLUP'.
 -- Calculate sum total_sales_price
 
--- SORU: brand ve Model_Year sütunlarý için Rollup kullanarak total sales hesaplamasý yapýn.
+-- SORU: brand ve Model_Year sÃ¼tunlarÃ½ iÃ§in Rollup kullanarak total sales hesaplamasÃ½ yapÃ½n.
 
 
 SELECT Brand, Model_Year, SUM(total_sales_price) total_sales_price
@@ -334,9 +334,9 @@ ORDER BY
 -- Calculate sum total_sales_price
 
 
---brand, category, model_year sütunlarý için cube kullanarak total sales hesaplamasý yapýn.
+--brand, category, model_year sÃ¼tunlarÃ½ iÃ§in cube kullanarak total sales hesaplamasÃ½ yapÃ½n.
 
---üç sütun için 8 farklý gruplama varyasyonu oluþturulacak!
+--Ã¼Ã§ sÃ¼tun iÃ§in 8 farklÃ½ gruplama varyasyonu oluÃ¾turulacak!
 
 SELECT Brand, Category, Model_Year, SUM(total_sales_price)
 FROM sale.sales_summary
@@ -358,18 +358,18 @@ ORDER BY Brand, Category;
 --------- PIVOT ----------
 
 --Generate a query that you use its result as basic table for PIVOT.
---pivot table oluþturacaðýnýz kaynak tabloyu belirleyin
+--pivot table oluÃ¾turacaÃ°Ã½nÃ½z kaynak tabloyu belirleyin
 
 -- that is what:
 
 --Question: Write a query using summary table that returns the total turnover from each category by model year. (in pivot table format)
---kategorilere ve model yýlýna göre toplam ciro miktarýný summary tablosu üzerinden hesaplayýn
+--kategorilere ve model yÃ½lÃ½na gÃ¶re toplam ciro miktarÃ½nÃ½ summary tablosu Ã¼zerinden hesaplayÃ½n
 
 
 
 
 --Now, you create a pivot table using above query result.
---Yukarýdaki sonucu pivot tabloya dönüþtür.
+--YukarÃ½daki sonucu pivot tabloya dÃ¶nÃ¼Ã¾tÃ¼r.
 
 
 
@@ -381,7 +381,7 @@ ORDER BY Brand, Category;
 
 	
 --Write a query that returns count of the orders day by day in a pivot table format that has been shipped two days later.
--- Ýki günden geç kargolanan sipariþlerin haftanýn günlerine göre daðýlýmýný hesaplayýnýz.
+-- Ãki gÃ¼nden geÃ§ kargolanan sipariÃ¾lerin haftanÃ½n gÃ¼nlerine gÃ¶re daÃ°Ã½lÃ½mÃ½nÃ½ hesaplayÃ½nÃ½z.
 
 
 
