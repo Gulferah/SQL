@@ -24,7 +24,7 @@ FROM	sale.orders
 --Write a query that returns the product_names and list price that were made in 2021. 
 --(Exclude the categories that match Game, gps, or Home Theater )
 
--- Game, gps veya Home Theater haricindeki kategorilere ait 2021 model ürünleri listeleyin.
+-- Game, gps veya Home Theater haricindeki kategorilere ait 2021 model Ã¼rÃ¼nleri listeleyin.
 
 
 SELECT	product_name, list_price
@@ -42,8 +42,8 @@ AND		model_year = 2021
 --Write a query that returns the list of product names that were made in 2020 
 --and whose prices are higher than maximum product list price of Receivers Amplifiers category.
 
--- 2020 model olup Receivers Amplifiers kategorisindeki en pahalı üründen daha pahalı ürünleri listeleyin.
--- Ürün adı, model_yılı ve fiyat bilgilerini yüksek fiyattan düşük fiyata doğru sıralayınız.
+-- 2020 model olup Receivers Amplifiers kategorisindeki en pahalÃ½ Ã¼rÃ¼nden daha pahalÃ½ Ã¼rÃ¼nleri listeleyin.
+-- ÃœrÃ¼n adÃ½, model_yÃ½lÃ½ ve fiyat bilgilerini yÃ¼ksek fiyattan dÃ¼Ã¾Ã¼k fiyata doÃ°ru sÃ½ralayÃ½nÃ½z.
 
 
 SELECT *
@@ -85,8 +85,8 @@ ORDER BY
 -- Write a query that returns the list of product names that were made in 2020 
 -- and whose prices are higher than minimum product list price of Receivers Amplifiers category.
 
--- Receivers Amplifiers kategorisindeki ürünlerin herhangi birinden yüksek fiyatlı ürünleri listeleyin.
--- Ürün adı, model_yılı ve fiyat bilgilerini yüksek fiyattan düşük fiyata doğru sıralayınız.
+-- Receivers Amplifiers kategorisindeki Ã¼rÃ¼nlerin herhangi birinden yÃ¼ksek fiyatlÃ½ Ã¼rÃ¼nleri listeleyin.
+-- ÃœrÃ¼n adÃ½, model_yÃ½lÃ½ ve fiyat bilgilerini yÃ¼ksek fiyattan dÃ¼Ã¾Ã¼k fiyata doÃ°ru sÃ½ralayÃ½nÃ½z.
 
 
 SELECT *
@@ -159,7 +159,7 @@ WHERE	EXISTS (
 				)
 
 
----kontrol fonksiyonu. subquery herhangi bir değer döndürmediği için sonuç boş küme.
+---kontrol fonksiyonu. subquery herhangi bir deÃ°er dÃ¶ndÃ¼rmediÃ°i iÃ§in sonuÃ§ boÃ¾ kÃ¼me.
 SELECT *
 FROM	sale.customer
 WHERE	EXISTS (
@@ -168,7 +168,7 @@ WHERE	EXISTS (
 				WHERE	order_date > '2022-01-01'
 				)
 
---subquery ile outor query' nin eşleşen değeri olmadığı için sonuç boş küme.
+--subquery ile outor query' nin eÃ¾leÃ¾en deÃ°eri olmadÃ½Ã°Ã½ iÃ§in sonuÃ§ boÃ¾ kÃ¼me.
 
 SELECT *
 FROM	sale.customer AS A
@@ -179,7 +179,7 @@ WHERE	EXISTS (
 				AND		A.customer_id = B.customer_id
 				)
 
----Select' e bakmaz eşitlik önemli. Eğer eşitlik belirtilmişse subquery ve outor query' nin ortak değerlerini döndürür.
+---Select' e bakmaz eÃ¾itlik Ã¶nemli. EÃ°er eÃ¾itlik belirtilmiÃ¾se subquery ve outor query' nin ortak deÃ°erlerini dÃ¶ndÃ¼rÃ¼r.
 
 SELECT *
 FROM	sale.customer AS A
@@ -199,7 +199,7 @@ SELECT *
 FROM sale.customer
 WHERE NOT EXISTS (SELECT 1)
 
----eğer subquery sonuç döndürmüşse not exists için koşul sağlanmamış demektir ve outor query' den sonuç dönmez.
+---eÃ°er subquery sonuÃ§ dÃ¶ndÃ¼rmÃ¼Ã¾se not exists iÃ§in koÃ¾ul saÃ°lanmamÃ½Ã¾ demektir ve outor query' den sonuÃ§ dÃ¶nmez.
 SELECT *
 FROM sale.customer
 WHERE	NOT EXISTS (
@@ -208,7 +208,7 @@ WHERE	NOT EXISTS (
 						WHERE	order_date > '2020-01-01'						
 					)
 
----eğer subquery sonuç döndürmemişse not exists için koşul sağlanmış demektir ve outor query' den sonuç döner.
+---eÃ°er subquery sonuÃ§ dÃ¶ndÃ¼rmemiÃ¾se not exists iÃ§in koÃ¾ul saÃ°lanmÃ½Ã¾ demektir ve outor query' den sonuÃ§ dÃ¶ner.
 SELECT	*
 FROM	sale.customer
 WHERE	NOT EXISTS (
@@ -230,10 +230,10 @@ WHERE	NOT EXISTS (
 
 
 --Write a query that returns a list of States where 'Apple - Pre-Owned iPad 3 - 32GB - White' product is not ordered
--- 'Apple - Pre-Owned iPad 3 - 32GB - White' isimli ürünün sipariş verilmediği state' leri döndüren bir sorgu yazınız. (müşterilerin state' leri üzerinden)
+-- 'Apple - Pre-Owned iPad 3 - 32GB - White' isimli Ã¼rÃ¼nÃ¼n sipariÃ¾ verilmediÃ°i state' leri dÃ¶ndÃ¼ren bir sorgu yazÃ½nÃ½z. (mÃ¼Ã¾terilerin state' leri Ã¼zerinden)
 
 
---Tüm state' lerden ürünü sipariş verenleri çıkaracağım.
+--TÃ¼m state' lerden Ã¼rÃ¼nÃ¼ sipariÃ¾ verenleri Ã§Ã½karacaÃ°Ã½m.
 
 SELECT	 [state]
 FROM	sale.customer
@@ -299,8 +299,8 @@ WHERE	NOT EXISTS (
 --Write a query that returns stock information of the products in Davi techno Retail store. 
 --The BFLO Store hasn't  got any stock of that products.
 
---Davi techno mağazasındaki ürünlerin stok bilgilerini döndüren bir sorgu yazın. 
---Bu ürünlerin The BFLO Store mağazasında stoğu bulunmuyor.
+--Davi techno maÃ°azasÃ½ndaki Ã¼rÃ¼nlerin stok bilgilerini dÃ¶ndÃ¼ren bir sorgu yazÃ½n. 
+--Bu Ã¼rÃ¼nlerin The BFLO Store maÃ°azasÃ½nda stoÃ°u bulunmuyor.
 
 
 SELECT	DISTINCT a.product_id
@@ -347,7 +347,7 @@ AND		EXISTS	(
 --Subquery in SELECT Statement
 
 --Write a query that creates a new column named "total_price" calculating the total prices of the products on each order.
---order id' lere göre toplam list price ları hesaplayın.
+--order id' lere gÃ¶re toplam list price larÃ½ hesaplayÃ½n.
 
 
 SELECT	order_id, SUM(quantity*list_price)
@@ -381,8 +381,8 @@ FROM	sale.order_item AS B
 
 --List customers who have an order prior to the last order date of a customer named Jerald Berray and are residents of the city of Austin. 
 
--- Jerald Berray isimli müşterinin son siparişinden önce sipariş vermiş 
---ve Austin şehrinde ikamet eden müşterileri listeleyin.
+-- Jerald Berray isimli mÃ¼Ã¾terinin son sipariÃ¾inden Ã¶nce sipariÃ¾ vermiÃ¾ 
+--ve Austin Ã¾ehrinde ikamet eden mÃ¼Ã¾terileri listeleyin.
 
 
 WITH T1 AS (
@@ -436,8 +436,8 @@ DROP VIEW V_T1
 
 -- List all customers their orders are on the same dates with Laurel Goldammer.
 
--- Laurel Goldammer isimli müşterinin alışveriş yaptığı tarihte/tarihlerde alışveriş yapan tüm müşterileri listeleyin.
--- Müşteri adı, soyadı ve sipariş tarihi bilgilerini listeleyin.
+-- Laurel Goldammer isimli mÃ¼Ã¾terinin alÃ½Ã¾veriÃ¾ yaptÃ½Ã°Ã½ tarihte/tarihlerde alÃ½Ã¾veriÃ¾ yapan tÃ¼m mÃ¼Ã¾terileri listeleyin.
+-- MÃ¼Ã¾teri adÃ½, soyadÃ½ ve sipariÃ¾ tarihi bilgilerini listeleyin.
 
 WITH T1 AS (
 			SELECT	order_date
@@ -461,8 +461,8 @@ FROM	sale.customer AS X
 -- //////
 
 --List products their model year are 2021 and their categories other than Game, gps, or Home Theater.
--- Game, gps, or Home Theater haricindeki kategorilere ait ürünlerden sadece 2021 model yılına ait 
---ürünlerin isim ve fiyat bilgilerini listeleyin.
+-- Game, gps, or Home Theater haricindeki kategorilere ait Ã¼rÃ¼nlerden sadece 2021 model yÃ½lÃ½na ait 
+--Ã¼rÃ¼nlerin isim ve fiyat bilgilerini listeleyin.
 
 WITH T1 AS (
 			SELECT *
@@ -479,7 +479,7 @@ WHERE	model_year = 2021
 
 
 /*
-Eşitsizlik olduğu için hatalı sonuç verdi.
+EÃ¾itsizlik olduÃ°u iÃ§in hatalÃ½ sonuÃ§ verdi.
 
 WITH T1 AS (
 			SELECT *
@@ -503,7 +503,7 @@ WHERE	model_year = 2021
 
 -- Create a table with a number in each row in ascending order from 0 to 9.
 
--- 0'dan 9'a kadar herbir rakam bir satırda olacak şekide bir tablo oluşturun.
+-- 0'dan 9'a kadar herbir rakam bir satÃ½rda olacak Ã¾ekide bir tablo oluÃ¾turun.
 
 WITH T1 AS 
 			(
