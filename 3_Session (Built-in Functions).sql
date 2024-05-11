@@ -24,7 +24,7 @@ SELECT *
 FROM	t_date_time
 
 
---SELECT 'ALİ' AS name, 20 AS age
+--SELECT 'ALÃ' AS name, 20 AS age
 
 
 SELECT GETDATE()
@@ -97,7 +97,7 @@ SELECT	ISDATE ('20240424')
 
 
 
-SELECT 'ALİ' AS name, 20 AS age
+SELECT 'ALÃ' AS name, 20 AS age
 
 
 SELECT *
@@ -228,7 +228,7 @@ ORDER BY
 --------
 
 ------Write a query returns orders that are shipped more than two days after the order date. 
---2 günden geç kargolanan siparişlerin bilgilerini getiriniz.
+--2 gÃ¼nden geÃ§ kargolanan sipariÃ¾lerin bilgilerini getiriniz.
 
 /*
 SELECT *, DATEDIFF(DAY, order_date, shipped_date)  AS DATEDIF
@@ -335,7 +335,7 @@ SELECT *
 FROM	string_split ('Ali,Veli,Ahmet,Zeynep', ',')
 
 
----soru: clarusway kelimesinin ilk harfini büyük, diğerlerini küçük olacak şekilde gösterin.
+---soru: clarusway kelimesinin ilk harfini bÃ¼yÃ¼k, diÃ°erlerini kÃ¼Ã§Ã¼k olacak Ã¾ekilde gÃ¶sterin.
 
 
 SELECT UPPER(SUBSTRING('clarusway', 1, 1)) + SUBSTRING('clarusway',2,LEN('clarusway'))
@@ -422,7 +422,7 @@ SELECT ROUND(123456.5678, 2)
 SELECT ROUND(123456.5638, 2)
 
 
-SELECT ROUND(123456.5678, 2, 0)--3. argüman opsiyonel ve 0 ya da 1 değeri alabilir.
+SELECT ROUND(123456.5678, 2, 0)--3. argÃ¼man opsiyonel ve 0 ya da 1 deÃ°eri alabilir.
 
 
 SELECT ROUND(123456.5678, 2, 1)
@@ -465,7 +465,7 @@ FROM	sale.customer
 
 SELECT ISNUMERIC(12354651232)
 
-SELECT ISNUMERIC('ALİ')
+SELECT ISNUMERIC('ALÃ')
 
 
 SELECT	zip_code, ISNUMERIC(zip_code)
@@ -477,7 +477,7 @@ FROM	sale.customer
 
 -- How many customers have yahoo mail?
 
---yahoo mailine sahip kaç müşteri vardır?
+--yahoo mailine sahip kaÃ§ mÃ¼Ã¾teri vardÃ½r?
 
 
 
@@ -542,9 +542,9 @@ WHERE	SUBSTRING(street, 3, 1) NOT LIKE '[^0-9]'
 
 ------///////////
 
---Split the mail addresses into two parts from ‘@’, and place them in separate columns.
+--Split the mail addresses into two parts from Â‘@Â’, and place them in separate columns.
 
---@ işareti ile mail sütununu ikiye ayırın. Örneğin
+--@ iÃ¾areti ile mail sÃ¼tununu ikiye ayÃ½rÃ½n. Ã–rneÃ°in
 --ronna.butler@gmail.com	/ ronna.butler	/ gmail.com
 
 
@@ -561,10 +561,10 @@ FROM sale.customer
 --The street column has some string characters (5C, 43E, 234F, etc.) 
 --that are mistakenly added to the end of the numeric characters in the first part of the street records. Remove these typos in this column. 
 
---street sütununda baştaki rakamsal ifadenin sonuna yanlışlıkla eklenmiş string karakterleri temizleyin
---önce boşluğa kadar olan kısmı alınız
---sonra where ile sonunda harf olan kayıtları bulunuz
---bu harfi kaldırın
+--street sÃ¼tununda baÃ¾taki rakamsal ifadenin sonuna yanlÃ½Ã¾lÃ½kla eklenmiÃ¾ string karakterleri temizleyin
+--Ã¶nce boÃ¾luÃ°a kadar olan kÃ½smÃ½ alÃ½nÃ½z
+--sonra where ile sonunda harf olan kayÃ½tlarÃ½ bulunuz
+--bu harfi kaldÃ½rÃ½n
 
 
 SELECT street, REPLACE (street, target_chars,numerical_chars) new_street
