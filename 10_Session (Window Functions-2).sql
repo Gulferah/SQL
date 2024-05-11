@@ -13,7 +13,7 @@ SELECT	*, SUM(quantity) OVER (PARTITION BY order_id)
 FROM	sale.order_item
 
 
---Analitik aggregate fonksiyonlarında order by kullanımı kümülatif işlem yapılmasını sağlar.
+--Analitik aggregate fonksiyonlarÃ½nda order by kullanÃ½mÃ½ kÃ¼mÃ¼latif iÃ¾lem yapÃ½lmasÃ½nÃ½ saÃ°lar.
 
 SELECT	*, SUM(quantity) OVER (PARTITION BY order_id ORDER BY item_id ASC)
 FROM	sale.order_item
@@ -93,7 +93,7 @@ FROM	T1
 
 
 ---Write a query that returns first order date by month
----Her ay için ilk sipariş tarihini gösteriniz.
+---Her ay iÃ§in ilk sipariÃ¾ tarihini gÃ¶steriniz.
 
 
 SELECT	order_date, YEAR (order_date) ord_year, MONTH (order_date) ord_month
@@ -134,7 +134,7 @@ FROM	product.stock
 
 
 --Write a query that returns the order date of the one previous sale of each staff (use the LAG function)
---1. Herbir personelin bir önceki satışının sipariş tarihini yazdırınız (LAG fonksiyonunu kullanınız)
+--1. Herbir personelin bir Ã¶nceki satÃ½Ã¾Ã½nÃ½n sipariÃ¾ tarihini yazdÃ½rÃ½nÃ½z (LAG fonksiyonunu kullanÃ½nÃ½z)
 
 
 SELECT	B.staff_id, B.first_name, B.last_name, order_id, order_date,
@@ -171,7 +171,7 @@ FROM	sale.orders AS A
 
 
 --Write a query that returns the order date of the one next sale of each staff (use the LEAD function)
---2. Herbir personelin bir sonraki satışının sipariş tarihini yazdırınız (LEAD fonksiyonunu kullanınız)
+--2. Herbir personelin bir sonraki satÃ½Ã¾Ã½nÃ½n sipariÃ¾ tarihini yazdÃ½rÃ½nÃ½z (LEAD fonksiyonunu kullanÃ½nÃ½z)
 
 
 SELECT	B.staff_id, B.first_name, B.last_name, A.order_id, A.order_date,
@@ -183,7 +183,7 @@ FROM	sale.orders AS A
 
 
 
----çalışanların performansları
+---Ã§alÃ½Ã¾anlarÃ½n performanslarÃ½
 
 
 WITH T1 AS (
@@ -205,7 +205,7 @@ GROUP BY staff_id, first_name, last_name
 ------------///////////////
 
 --Write a query that returns the difference order count between the current month and the next month for eachh year. 
---Her bir yıl için peş peşe gelen ayların sipariş sayıları arasındaki farkları bulunuz.
+--Her bir yÃ½l iÃ§in peÃ¾ peÃ¾e gelen aylarÃ½n sipariÃ¾ sayÃ½larÃ½ arasÃ½ndaki farklarÃ½ bulunuz.
 
 WITH T1 AS (
 			SELECT	DISTINCT YEAR(order_date) ord_year, MONTH(order_date) ord_month,
