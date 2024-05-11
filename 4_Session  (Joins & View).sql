@@ -191,7 +191,7 @@ FROM	product.brand AS A
 /*
 In the stocks table, there are not all products held on the product table and you want to insert these products into the stock table.
 
-You have to insert all these products for every three stores with “0 (zero)” quantity.
+You have to insert all these products for every three stores with â€œ0 (zero)â€ quantity.
 
 Write a query to prepare this data.
 
@@ -245,8 +245,8 @@ FROM	sale.staff AS A
 
 --Write a query that returns both the names of staff and the names of their 1st and 2nd managers
 
--- Bir önceki sorgu sonucunda gelen şeflerin yanına onların da şeflerini getiriniz
--- Çalışan adı, şef adı, şefin şefinin adı bilgilerini getirin
+-- Bir Ã¶nceki sorgu sonucunda gelen Ã¾eflerin yanÃ½na onlarÃ½n da Ã¾eflerini getiriniz
+-- Ã‡alÃ½Ã¾an adÃ½, Ã¾ef adÃ½, Ã¾efin Ã¾efinin adÃ½ bilgilerini getirin
 
 
 
