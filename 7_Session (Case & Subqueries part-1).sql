@@ -1,7 +1,7 @@
 
 ---------Case Expression
 
---Her bir çalışanın yanına store isimlerini yazdırın:
+--Her bir Ã§alÃ½Ã¾anÃ½n yanÃ½na store isimlerini yazdÃ½rÃ½n:
 --1. Davi Techno Retail 2. Burkes Outlet 3. The BFLO Store
 
 
@@ -23,7 +23,7 @@ SELECT	first_name, last_name, store_id,
 FROM	sale.staff
 
 
----Boş bırakılan seçenekler için NULL atanır.
+---BoÃ¾ bÃ½rakÃ½lan seÃ§enekler iÃ§in NULL atanÃ½r.
 
 SELECT	first_name, last_name, store_id,
 		CASE store_id
@@ -43,7 +43,7 @@ FROM	sale.staff
 --Create  a new column with the meaning of the  values in the Order_Status column.  (use searched case ex.)
 -- 1 = Pending; 2 = Processing; 3 = Rejected; 4 = Completed
 
---Order_Status isimli alandaki değerlerin ne anlama geldiğini içeren yeni bir alan oluşturun.
+--Order_Status isimli alandaki deÃ°erlerin ne anlama geldiÃ°ini iÃ§eren yeni bir alan oluÃ¾turun.
 
 
 SELECT	order_id, order_status, 
@@ -59,7 +59,7 @@ FROM	sale.orders
 
 
 -- Write a query that gives the first and last names of customers who have ordered products from the computer accessories, speakers, and mp4 player categories in the same order.
--- Aynı siparişte hem mp4 player, hem Computer Accessories hem de Speakers kategorilerinde ürün sipariş veren müşterileri bulunuz.
+-- AynÃ½ sipariÃ¾te hem mp4 player, hem Computer Accessories hem de Speakers kategorilerinde Ã¼rÃ¼n sipariÃ¾ veren mÃ¼Ã¾terileri bulunuz.
 
 
 SELECT	F.customer_id, F.first_name, F.last_name, C.order_id,
@@ -105,7 +105,7 @@ HAVING
 
 --Write a query that shows all employees in the store where Davis Thomas works.
 
--- Davis Thomas'nın çalıştığı mağazadaki tüm personelleri listeleyin.
+-- Davis Thomas'nÃ½n Ã§alÃ½Ã¾tÃ½Ã°Ã½ maÃ°azadaki tÃ¼m personelleri listeleyin.
 
 
 SELECT *
@@ -125,7 +125,7 @@ WHERE	store_id = (
 
 -- Write a query that shows the employees for whom Charles Cussona is a first-degree manager. 
 --(To which employees are Charles Cussona a first-degree manager?)
--- Charles	Cussona 'ın yöneticisi olduğu personelleri listeleyin.
+-- Charles	Cussona 'Ã½n yÃ¶neticisi olduÃ°u personelleri listeleyin.
 
 
 SELECT *
@@ -161,8 +161,8 @@ WHERE	manager_id = (
 -- ///////////////
 
 
--- Write a query that returns the customers located where ‘The BFLO Store' is located.
--- 'The BFLO Store' isimli mağazanın bulunduğu şehirdeki müşterileri listeleyin.
+-- Write a query that returns the customers located where â€˜The BFLO Store' is located.
+-- 'The BFLO Store' isimli maÃ°azanÃ½n bulunduÃ°u Ã¾ehirdeki mÃ¼Ã¾terileri listeleyin.
 
 
 SELECT	*
@@ -192,8 +192,8 @@ WHERE	A.store_name = 'The BFLO Store'
 
 --Write a query that returns the list of products that are more expensive than the product named 'Pro-Series 49-Class Full HD Outdoor LED TV (Silver)'
 
--- 'Pro-Series 49-Class Full HD Outdoor LED TV (Silver)' isimli üründen pahalı olan ürünleri listeleyin.
--- Product id, product name, model_year, fiyat, marka adı ve kategori adı alanlarına ihtiyaç duyulmaktadır.
+-- 'Pro-Series 49-Class Full HD Outdoor LED TV (Silver)' isimli Ã¼rÃ¼nden pahalÃ½ olan Ã¼rÃ¼nleri listeleyin.
+-- Product id, product name, model_year, fiyat, marka adÃ½ ve kategori adÃ½ alanlarÃ½na ihtiyaÃ§ duyulmaktadÃ½r.
 
 SELECT *
 FROM	product.product
@@ -221,8 +221,8 @@ WHERE	list_price > (
 -- Write a query that returns customer first names, last names and order dates. 
 -- The customers who are order on the same dates as Laurel Goldammer.
 
--- Laurel Goldammer isimli müşterinin alışveriş yaptığı tarihte/tarihlerde alışveriş yapan tüm müşterileri listeleyin.
--- Müşteri adı, soyadı ve sipariş tarihi bilgilerini listeleyin.
+-- Laurel Goldammer isimli mÃ¼Ã¾terinin alÃ½Ã¾veriÃ¾ yaptÃ½Ã°Ã½ tarihte/tarihlerde alÃ½Ã¾veriÃ¾ yapan tÃ¼m mÃ¼Ã¾terileri listeleyin.
+-- MÃ¼Ã¾teri adÃ½, soyadÃ½ ve sipariÃ¾ tarihi bilgilerini listeleyin.
 
 
 SELECT	order_date
@@ -289,7 +289,7 @@ FROM	(
 
 
 --List the products that ordered in the last 10 orders in Buffalo city.
--- Buffalo şehrinde son 10 siparişte sipariş verilen ürünleri listeleyin.
+-- Buffalo Ã¾ehrinde son 10 sipariÃ¾te sipariÃ¾ verilen Ã¼rÃ¼nleri listeleyin.
 
 
 SELECT	TOP (10) B.*
